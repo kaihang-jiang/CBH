@@ -38,17 +38,17 @@ for bi = 1:length(nbits)
                     YTest = YKTest;
                     LTest = L_te;
                     
-                    BHSHparam.lambda = lambda(j);
-                    BHSHparam.muta = muta(k);
-                    BHSHparam.theta= theta(h);
-                    BHSHparam.nbits = nbits(bi);
-%                     BHSHparam.mbits = mbits(b);
-                    BHSHparam.mbits = ceil(BHSHparam.nbits*0.2);
-                    BHSHparam.beta = beta(r);
-                    BHSHparam.maxItr = maxItr(b);
-                    BHSHparam.func = func;
-                    [B] = BHSH(XTrain,YTrain,LTrain',BHSHparam);
-                    eva_info_ = evaluate_BHSH(XTrain',YTrain',LTrain,XTest,YTest,LTest,BHSHparam,B);
+                    CBHparam.lambda = lambda(j);
+                    CBHparam.muta = muta(k);
+                    CBHparam.theta= theta(h);
+                    CBHparam.nbits = nbits(bi);
+%                   CBHparam.mbits = mbits(b);
+                    CBHparam.mbits = ceil(CBHparam.nbits*0.2);
+                    CBHparam.beta = beta(r);
+                    CBHparam.maxItr = maxItr(b);
+                    CBHparam.func = func;
+                    [B] = CBH(XTrain,YTrain,LTrain',CBHparam);
+                    eva_info_ = evaluate_CBHH(XTrain',YTrain',LTrain,XTest,YTest,LTest,CBHparam,B);
                     eva_info_.Image_VS_Text_MAP;
                     eva_info_.Text_VS_Image_MAP;
                     result.bits = nbits(bi);
@@ -76,3 +76,4 @@ for bi = 1:length(nbits)
 end
 
  end
+
