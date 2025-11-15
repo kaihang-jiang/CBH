@@ -1,4 +1,4 @@
-function final_B = BHSH(XKTrain,YKTrain,LTrain,param)
+function final_B = CBH(XKTrain,YKTrain,LTrain,param)
   %%  parameters
      
      lambda = param.lambda;
@@ -95,4 +95,5 @@ function final_B = BHSH(XKTrain,YKTrain,LTrain,param)
         B = ([C; C1; C2]);     
     end  
      final_B = B;
+
 end
