@@ -43,23 +43,23 @@ for bi = 1:length(nbits)
                for r=1:length(beta)
                   for v = 1:turn        
                     fprintf('Data preparing...\n\n');  
-                    BHSHparam.nAnchors = 2000; 
-                   [XKTrain,XKTest] = Kernelize(I_tr,I_te,BHSHparam.nAnchors); 
-                   [YKTrain,YKTest] = Kernelize(T_tr, T_te,BHSHparam.nAnchors);
+                    CBHparam.nAnchors = 2000; 
+                   [XKTrain,XKTest] = Kernelize(I_tr,I_te,CBHparam.nAnchors); 
+                   [YKTrain,YKTest] = Kernelize(T_tr, T_te,CBHparam.nAnchors);
                     XTrain = XKTrain';
                     YTrain = YKTrain';
                     LTrain = L_tr;
                     LTest = L_te;
-                    BHSHparam.lambda = lambda(j);
-                    BHSHparam.muta = muta(k);
-                    BHSHparam.theta= theta(h);
-                    BHSHparam.nbits = nbits(bi);
-                    BHSHparam.mbits = ceil(nbits(bi)*0.20);
-                    BHSHparam.beta = beta(r);
-                    BHSHparam.maxItr = maxItr(b);
-                    BHSHparam.func = func;
-                    [B] = CBH(XTrain,YTrain,LTrain',BHSHparam);
-                    eva_info_ = evaluate_CBH(XTrain',YTrain',LTrain,XKTest,YKTest,LTest,BHSHparam,B);
+                    CBHparam.lambda = lambda(j);
+                    CBHparam.muta = muta(k);
+                    CBHparam.theta= theta(h);
+                    CBHparam.nbits = nbits(bi);
+                    CBHparam.mbits = ceil(nbits(bi)*0.20);
+                    CBHparam.beta = beta(r);
+                    CBHparam.maxItr = maxItr(b);
+                    CBHparam.func = func;
+                    [B] = CBH(XTrain,YTrain,LTrain',CBHparam);
+                    eva_info_ = evaluate_CBH(XTrain',YTrain',LTrain,XKTest,YKTest,LTest,CBHparam,B);
                     eva_info_.Image_VS_Text_MAP;
                     eva_info_.Text_VS_Image_MAP;
                     result.bits = nbits(bi);
@@ -96,4 +96,5 @@ for bi = 1:length(nbits)
 end
 
  end
+
 
