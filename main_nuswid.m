@@ -58,8 +58,8 @@ for bi = 1:length(nbits)
                     BHSHparam.beta = beta(r);
                     BHSHparam.maxItr = maxItr(b);
                     BHSHparam.func = func;
-                    [B] = BHSH(XTrain,YTrain,LTrain',BHSHparam);
-                    eva_info_ = evaluate_BHSH(XTrain',YTrain',LTrain,XKTest,YKTest,LTest,BHSHparam,B);
+                    [B] = CBH(XTrain,YTrain,LTrain',BHSHparam);
+                    eva_info_ = evaluate_CBH(XTrain',YTrain',LTrain,XKTest,YKTest,LTest,BHSHparam,B);
                     eva_info_.Image_VS_Text_MAP;
                     eva_info_.Text_VS_Image_MAP;
                     result.bits = nbits(bi);
@@ -96,3 +96,4 @@ for bi = 1:length(nbits)
 end
 
  end
+
