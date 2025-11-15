@@ -1,4 +1,4 @@
-function evaluation_info=evaluate_BHSH(XKTrain,YKTrain,LTrain,XKTest,YKTest,LTest,param,B)
+function evaluation_info=evaluate_CBH(XKTrain,YKTrain,LTrain,XKTest,YKTest,LTest,param,B)
     tic;
     addpath(genpath('./utils/'));
     addpath(genpath('markSchmidt/'));
@@ -44,4 +44,5 @@ function evaluation_info=evaluate_BHSH(XKTrain,YKTrain,LTrain,XKTest,YKTest,LTes
     
    
     clear B XW YW
+
 end
