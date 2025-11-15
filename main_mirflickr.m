@@ -28,9 +28,9 @@ for bi = 1:length(nbits)
                for r=1:length(beta)
                   for v = 1:turn
                    fprintf('Data preparing...\n\n');  
-                   BHSHparam.nAnchors = 2000; 
-                   [XKTrain,XKTest] = Kernelize(I_tr,I_te,BHSHparam.nAnchors); 
-                   [YKTrain,YKTest] = Kernelize(T_tr, T_te,BHSHparam.nAnchors);
+                   CBHparam.nAnchors = 2000; 
+                   [XKTrain,XKTest] = Kernelize(I_tr,I_te,CBHparam.nAnchors); 
+                   [YKTrain,YKTest] = Kernelize(T_tr, T_te,CBHparam.nAnchors);
                     XTrain = XKTrain';
                     YTrain = YKTrain';
                     LTrain = L_tr;
@@ -76,4 +76,5 @@ for bi = 1:length(nbits)
 end
 
  end
+
 
